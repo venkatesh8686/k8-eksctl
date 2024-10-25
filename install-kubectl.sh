@@ -1,11 +1,12 @@
 #!/bin/bash
 
 R="\e[31m"
+version="$ kubectl version"
 
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv kubectl /usr/local/bin/kubectl
-kubectl version "$R Kubectl installed " 
+echo  "$version installed -R" 
 
 echo "started installing eksctl"
 ARCH=amd64
@@ -15,4 +16,4 @@ tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version "$R eksctl installed"
 
-aws configure
+#aws configure
